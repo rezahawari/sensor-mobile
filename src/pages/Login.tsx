@@ -49,19 +49,12 @@ export default function Login({ containerRef }: Props) {
       >
         <Image
           src="/logoWhite.svg"
-          w={"100%"}
+          w={"140px"}
           position={"absolute"}
           opacity={0.05}
-          right={0}
+          left={"50%"}
           top={"70px"}
-        />
-        <Image
-          src="/logoWhite.svg"
-          w={"100%"}
-          position={"absolute"}
-          opacity={0.05}
-          right={"-100px"}
-          top={"60px"}
+          transform={"translateX(-50%)"}
         />
         <CContainer flex={0} my={"auto"} pb={16} align={"center"}>
           <Image

@@ -47,7 +47,7 @@ export default function Register({ containerRef }: Props) {
         position={"relative"}
         overflow={"hidden"}
       >
-        <Image
+        {/* <Image
           src="/logoWhite.svg"
           w={"100%"}
           position={"absolute"}
@@ -64,6 +64,15 @@ export default function Register({ containerRef }: Props) {
           left={"-100px"}
           top={"60px"}
           transform={"scaleX(-1)"}
+        /> */}
+        <Image
+          src="/logoWhite.svg"
+          w={"140px"}
+          position={"absolute"}
+          opacity={0.05}
+          left={"50%"}
+          top={"70px"}
+          transform={"translateX(-50%)"}
         />
         <CContainer flex={0} my={"auto"} pb={16} align={"center"}>
           <Image
@@ -118,7 +127,7 @@ export default function Register({ containerRef }: Props) {
         </form>
 
         <Button size={"lg"} className="btn-ap clicky" colorScheme="ap">
-          Login
+          Register
         </Button>
 
         <HStack justify={"space-between"} mt={16}>
