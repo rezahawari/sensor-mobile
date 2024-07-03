@@ -6,7 +6,7 @@ interface Props extends StackProps {
 
 export default function Container({ children, ...props }: Props) {
   return (
-    <VStack align={"stretch"} w={"100%"} maxW={"720px"} {...props}>
+    <VStack align={"stretch"} w={"100%"} maxW={"720px"} flex={1} {...props}>
       {children}
     </VStack>
   );
