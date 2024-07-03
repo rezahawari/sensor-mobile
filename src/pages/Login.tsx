@@ -41,7 +41,6 @@ export default function Login({ containerRef }: Props) {
   return (
     <CContainer>
       <CContainer
-        bg={"p.500"}
         color={lightDarkColor}
         p={5}
         position={"relative"}
@@ -70,7 +69,13 @@ export default function Login({ containerRef }: Props) {
         </CContainer>
       </CContainer>
 
-      <CContainer p={5} pb={8} flex={0}>
+      <CContainer
+        p={6}
+        pb={8}
+        flex={0}
+        borderRadius={"20px 0 0 0"}
+        bg={lightDarkColor}
+      >
         <form>
           <FormControl mb={4} isInvalid={!!formik.errors.username}>
             <FormLabel>

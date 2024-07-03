@@ -19,6 +19,7 @@ export default function Landing() {
         className="noScroll"
         align={"stretch"}
         gap={0}
+        bg={"p.500"}
       >
         <CContainer minW={"100vw"} scrollSnapAlign={"center"}>
           <Login containerRef={containerRef} />
