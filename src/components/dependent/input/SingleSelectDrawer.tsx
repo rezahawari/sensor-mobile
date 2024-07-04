@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { RiArrowDownSLine } from "@remixicon/react";
 import { useState } from "react";
-import { useErrorColor } from "../../../constant/colors";
+import { useDarkLightColor, useErrorColor } from "../../../constant/colors";
 import { Interface__SelectOption } from "../../../constant/interfaces";
 import backOnClose from "../../../lib/backOnClose";
 import BackOnCloseButton from "../../independent/BackOnCloseButton";
@@ -87,6 +87,7 @@ export default function SingleSelectDrawer({
 
   // SX
   const errorColor = useErrorColor();
+  const darkLightColor = useDarkLightColor();
 
   return (
     <>
@@ -97,7 +98,8 @@ export default function SingleSelectDrawer({
         borderRadius={8}
         gap={3}
         _focus={{
-          border: "1px solid var(--p500)",
+          border: "1px solid",
+          borderColor: darkLightColor,
           boxShadow: "none !important",
         }}
         cursor={"pointer"}
@@ -171,8 +173,8 @@ export default function SingleSelectDrawer({
             </Button>
 
             <Button
-              colorScheme="ap"
-              className="btn-ap clicky"
+              colorScheme="dl"
+              className="clicky"
               w={"100%"}
               isDisabled={nonNullable ? (selected ? false : true) : false}
               onClick={confirmSelected}
@@ -199,13 +201,15 @@ export default function SingleSelectDrawer({
                   setSelected(option);
                 }}
                 borderColor={
-                  selected && selected.value === option.value ? "p.500" : ""
-                }
-                bg={
                   selected && selected.value === option.value
-                    ? "var(--p500a4) !important"
+                    ? darkLightColor
                     : ""
                 }
+                // bg={
+                //   selected && selected.value === option.value
+                //     ? "var(--p500a4) !important"
+                //     : ""
+                // }
               >
                 <Text>{option.label}</Text>
 
