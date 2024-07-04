@@ -1,9 +1,8 @@
 import { useDisclosure } from "@chakra-ui/react";
 import { Marker } from "@react-google-maps/api";
-import CustomDrawer from "../independent/wrapper/CustomDrawer";
 import DataGraphic from "../../pages/main/home/sections/DataGraphic";
 import CContainer from "../independent/wrapper/CContainer";
-import { useContentBgColor } from "../../constant/colors";
+import CustomDrawer from "../independent/wrapper/CustomDrawer";
 import DrawerHeader from "./DrawerHeader";
 
 interface Props {
@@ -18,7 +17,6 @@ export default function DeviceLocation({ item }: Props) {
   };
 
   // SX
-  const contentBgColor = useContentBgColor();
 
   return (
     <>
@@ -34,9 +32,9 @@ export default function DeviceLocation({ item }: Props) {
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}
-        header={<DrawerHeader title="Detail" bg={contentBgColor} />}
+        header={<DrawerHeader title="Detail" />}
       >
-        <CContainer px={5} pb={8} bg={contentBgColor}>
+        <CContainer px={6} pb={8}>
           <DataGraphic />
         </CContainer>
       </CustomDrawer>

@@ -1,13 +1,40 @@
 import { Checkbox, HStack, Text } from "@chakra-ui/react";
+import ChartLineChart from "../../../../components/dependent/chart/ChartLineChart";
 import CContainer from "../../../../components/independent/wrapper/CContainer";
-import { useLightDarkColor } from "../../../../constant/colors";
 
 export default function DataGraphic() {
+  // const dummy = {};
+  // const [data] = useState<any | null>(dummy);
+  const datasets = [
+    {
+      customTooltipLabels: [1, 3, -2, 4],
+      data: [
+        { x: "7-4-2023 00:50:03", y: 1 },
+        { x: "7-4-2023 01:48:12", y: 3 },
+        { x: "7-4-2023 02:41:05", y: -2 },
+        { x: "7-4-2023 04:08:18", y: 4 },
+      ],
+      backgroundColor: "#E34436",
+      borderWidth: 3,
+      borderColor: "#E34436",
+    },
+    {
+      customTooltipLabels: [-1, 1, -2, 1.2],
+      data: [
+        { x: "7-4-2023 00:50:03", y: -1 },
+        { x: "7-4-2023 01:48:12", y: 1 },
+        { x: "7-4-2023 04:08:18", y: 1.2 },
+      ],
+      backgroundColor: "#3ED180",
+      borderWidth: 3,
+      borderColor: "#3ED180",
+    },
+  ];
+
   // SX
-  const lightDarkColor = useLightDarkColor();
 
   return (
-    <CContainer bg={lightDarkColor} borderRadius={12} p={4} flex={0}>
+    <CContainer borderRadius={12} flex={0}>
       <HStack justify={"space-between"} mb={4}>
         <Text as={"h2"} fontWeight={600}>
           Data Graphic
@@ -19,7 +46,7 @@ export default function DataGraphic() {
       </HStack>
 
       <CContainer>
-        <Text opacity={0.4}>Ini ceritanya line chart</Text>
+        <ChartLineChart datasets={datasets} />
       </CContainer>
     </CContainer>
   );
