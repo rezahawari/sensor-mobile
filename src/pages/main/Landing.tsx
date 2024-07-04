@@ -12,7 +12,7 @@ export default function Landing() {
     <Container>
       <HStack
         ref={containerRef}
-        minH={"100vh"}
+        h={"100vh"}
         w={"100%"}
         scrollSnapType={"x mandatory"}
         overflowX={"auto"}

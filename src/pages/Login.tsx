@@ -39,12 +39,13 @@ export default function Login({ containerRef }: Props) {
   const lightDarkColor = useLightDarkColor();
 
   return (
-    <CContainer>
+    <CContainer overflowY={"auto"}>
       <CContainer
+        h={"50%"}
+        overflow={"hidden"}
         color={lightDarkColor}
         p={5}
         position={"relative"}
-        overflow={"hidden"}
       >
         <Image
           src="/logoWhite.svg"
@@ -66,86 +67,96 @@ export default function Login({ containerRef }: Props) {
       </CContainer>
 
       <CContainer
+        h={"50%"}
+        overflowY={"auto"}
         p={6}
         pb={8}
-        flex={0}
         borderRadius={"20px 20px 0 0"}
         bg={lightDarkColor}
       >
         <Text fontSize={24} fontWeight={600}>
           Welcome
         </Text>
-        <Text mb={4} opacity={0.4}>
+        <Text mb={6} opacity={0.4}>
           Login untuk melanjutkan
         </Text>
 
-        <form>
-          <FormControl mb={4} isInvalid={!!formik.errors.username}>
-            <FormLabel>
-              Username
-              <RequiredForm />
-            </FormLabel>
-            <Input
-              name="username"
-              placeholder="sulenq_wazawsky"
-              onChange={formik.handleChange}
-              value={formik.values.username}
-            />
-            <FormErrorMessage>
-              {formik.errors.username as string}
-            </FormErrorMessage>
-          </FormControl>
+        <CContainer overflowY={"auto"}>
+          <form>
+            <FormControl mb={4} isInvalid={!!formik.errors.username}>
+              <FormLabel>
+                Username
+                <RequiredForm />
+              </FormLabel>
+              <Input
+                name="username"
+                placeholder="sulenq_wazawsky"
+                onChange={formik.handleChange}
+                value={formik.values.username}
+              />
+              <FormErrorMessage>
+                {formik.errors.username as string}
+              </FormErrorMessage>
+            </FormControl>
 
-          <FormControl mb={6} isInvalid={!!formik.errors.username}>
-            <FormLabel>
-              Password
-              <RequiredForm />
-            </FormLabel>
+            <FormControl mb={6} isInvalid={!!formik.errors.username}>
+              <FormLabel>
+                Password
+                <RequiredForm />
+              </FormLabel>
 
-            <PasswordInput
-              name="password"
-              placeholder="********"
-              onChangeSetter={(inputValue) => {
-                formik.setFieldValue("password", inputValue);
+              <PasswordInput
+                name="password"
+                placeholder="********"
+                onChangeSetter={(inputValue) => {
+                  formik.setFieldValue("password", inputValue);
+                }}
+                inputValue={formik.values.password}
+              />
+              <FormErrorMessage>
+                {formik.errors.username as string}
+              </FormErrorMessage>
+            </FormControl>
+          </form>
+
+          <Button
+            flexShrink={0}
+            size={"lg"}
+            className="btn-ap clicky"
+            colorScheme="ap"
+          >
+            Login
+          </Button>
+
+          <HStack justify={"space-between"} pt={8} mt={"auto"}>
+            <Button
+              size={"sm"}
+              colorScheme="ap"
+              variant={"ghost"}
+              className="clicky"
+            >
+              Forgot Password
+            </Button>
+            <Button
+              size={"sm"}
+              colorScheme="ap"
+              variant={"ghost"}
+              className="clicky"
+              rightIcon={<Icon as={RiArrowRightSLine} fontSize={iconSize} />}
+              pr={2}
+              onClick={() => {
+                if (containerRef.current) {
+                  containerRef.current.scrollBy({
+                    left: 400,
+                    behavior: "smooth",
+                  });
+                }
               }}
-              inputValue={formik.values.password}
-            />
-            <FormErrorMessage>
-              {formik.errors.username as string}
-            </FormErrorMessage>
-          </FormControl>
-        </form>
-        <Button size={"lg"} className="btn-ap clicky" colorScheme="ap">
-          Login
-        </Button>
-        <HStack justify={"space-between"} mt={16}>
-          <Button
-            size={"sm"}
-            colorScheme="ap"
-            variant={"ghost"}
-            className="clicky"
-          >
-            Forgot Password
-          </Button>
-          <Button
-            size={"sm"}
-            colorScheme="ap"
-            variant={"ghost"}
-            className="clicky"
-            rightIcon={<Icon as={RiArrowRightSLine} fontSize={iconSize} />}
-            pr={2}
-            onClick={() => {
-              if (containerRef.current) {
-                containerRef.current.scrollBy({
-                  left: 400,
-                  behavior: "smooth",
-                });
-              }
-            }}
-          >
-            Register
-          </Button>
-        </HStack>
+            >
+              Register
+            </Button>
+          </HStack>
+        </CContainer>
       </CContainer>
     </CContainer>
   );
