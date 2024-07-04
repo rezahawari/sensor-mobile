@@ -6,9 +6,12 @@ import {
   AccordionPanel,
   Box,
   Button,
+  HStack,
+  Icon,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
+import { RiEqualizer3Line } from "@remixicon/react";
 import { useState } from "react";
 import Header from "../../../components/dependent/Header";
 import SingleSelectCompanyDrawer from "../../../components/dependent/input/dedicated/SingleSelectCompanyDrawer";
@@ -16,11 +19,8 @@ import SingleSelectDeviceNameDrawer from "../../../components/dependent/input/de
 import SingleSelectModuleDrawer from "../../../components/dependent/input/dedicated/SingleSelectModuleDrawer";
 import SingleSelectProjectDrawer from "../../../components/dependent/input/dedicated/SingleSelectProjectDrawer";
 import CContainer from "../../../components/independent/wrapper/CContainer";
-import {
-  useContentBgColor,
-  useDarkLightColor,
-  useLightDarkColor,
-} from "../../../constant/colors";
+import { useContentBgColor } from "../../../constant/colors";
+import { iconSize } from "../../../constant/sizes";
 import DataGraphic from "./sections/DataGraphic";
 
 interface Interface__Config {
@@ -41,30 +41,31 @@ export default function Home() {
 
   // SX
   const contentBgColor = useContentBgColor();
-  const darkLightColor = useDarkLightColor();
-  const lightDarkColor = useLightDarkColor();
 
   return (
     <CContainer>
       {/* Header */}
-      <Box bg={darkLightColor} borderBottom={"1px solid var(--divider2)"}>
-        <Header bg={"transparent"} color={lightDarkColor} title="Dashboard" />
+      <Box bg={"dark"} borderBottom={"1px solid var(--divider2)"}>
+        <Header bg={"transparent"} color={"white"} title="Dashboard" />
       </Box>
 
       {/* Config */}
-      <CContainer bg={darkLightColor} flex={0}>
+      <CContainer bg={"dark"} flex={0}>
         <Accordion allowToggle defaultIndex={0}>
           <AccordionItem border={"none"}>
             <AccordionButton
               as={Button}
               className="btn"
-              color={lightDarkColor}
+              color={"white"}
               justifyContent={"space-between"}
               borderRadius={0}
               size={"lg"}
               _expanded={{ bg: "var(--divider) !important" }}
             >
-              <Text>Config</Text>
+              <HStack>
+                <Icon as={RiEqualizer3Line} fontSize={iconSize} />
+                <Text>Config</Text>
+              </HStack>
               <AccordionIcon />
             </AccordionButton>
 
@@ -78,7 +79,7 @@ export default function Home() {
                   }}
                   inputValue={config.company}
                   placeholder="Select Company"
-                  color={lightDarkColor}
+                  color={"white"}
                 />
 
                 <SingleSelectProjectDrawer
@@ -89,7 +90,7 @@ export default function Home() {
                   }}
                   inputValue={config.project}
                   placeholder="Select Project"
-                  color={lightDarkColor}
+                  color={"white"}
                 />
 
                 <SingleSelectModuleDrawer
@@ -100,7 +101,7 @@ export default function Home() {
                   }}
                   inputValue={config.module}
                   placeholder="Select Module"
-                  color={lightDarkColor}
+                  color={"white"}
                 />
 
                 <SingleSelectDeviceNameDrawer
@@ -111,7 +112,7 @@ export default function Home() {
                   }}
                   inputValue={config.device_name}
                   placeholder="Select Device Name"
-                  color={lightDarkColor}
+                  color={"white"}
                 />
               </SimpleGrid>
             </AccordionPanel>
