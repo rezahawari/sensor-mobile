@@ -48,24 +48,20 @@ export default function Login({ containerRef }: Props) {
       >
         <Image
           src="/logoWhite.svg"
-          w={"140px"}
+          w={"200px"}
           position={"absolute"}
           opacity={0.05}
           left={"50%"}
-          top={"70px"}
+          top={"-20px"}
           transform={"translateX(-50%)"}
         />
-        <CContainer flex={0} my={"auto"} pb={16} align={"center"}>
+        <CContainer flex={0} my={"auto"} align={"center"}>
           <Image
             src="/logoWhiteBg.png"
-            w={"40px"}
+            w={"100px"}
             borderRadius={"full"}
             mb={4}
           />
-          <Text fontSize={24} fontWeight={600}>
-            Welcome
-          </Text>
-          <Text>Login untuk melanjutkan</Text>
         </CContainer>
       </CContainer>
 
@@ -73,9 +69,16 @@ export default function Login({ containerRef }: Props) {
         p={6}
         pb={8}
         flex={0}
-        borderRadius={"20px 0 0 0"}
+        borderRadius={"20px 20px 0 0"}
         bg={lightDarkColor}
       >
+        <Text fontSize={24} fontWeight={600}>
+          Welcome
+        </Text>
+        <Text mb={4} opacity={0.4}>
+          Login untuk melanjutkan
+        </Text>
+
         <form>
           <FormControl mb={4} isInvalid={!!formik.errors.username}>
             <FormLabel>
@@ -112,11 +115,9 @@ export default function Login({ containerRef }: Props) {
             </FormErrorMessage>
           </FormControl>
         </form>
-
         <Button size={"lg"} className="btn-ap clicky" colorScheme="ap">
           Login
         </Button>
-
         <HStack justify={"space-between"} mt={16}>
           <Button
             size={"sm"}

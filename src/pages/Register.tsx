@@ -46,44 +46,22 @@ export default function Register({ containerRef }: Props) {
         position={"relative"}
         overflow={"hidden"}
       >
-        {/* <Image
-          src="/logoWhite.svg"
-          w={"100%"}
-          position={"absolute"}
-          opacity={0.05}
-          left={0}
-          top={"70px"}
-          transform={"scaleX(-1)"}
-        />
         <Image
           src="/logoWhite.svg"
-          w={"100%"}
-          position={"absolute"}
-          opacity={0.05}
-          left={"-100px"}
-          top={"60px"}
-          transform={"scaleX(-1)"}
-        /> */}
-        <Image
-          src="/logoWhite.svg"
-          w={"140px"}
+          w={"200px"}
           position={"absolute"}
           opacity={0.05}
           left={"50%"}
-          top={"70px"}
+          top={"-20px"}
           transform={"translateX(-50%)"}
         />
-        <CContainer flex={0} my={"auto"} pb={16} align={"center"}>
+        <CContainer flex={0} my={"auto"} align={"center"}>
           <Image
             src="/logoWhiteBg.png"
-            w={"40px"}
+            w={"100px"}
             borderRadius={"full"}
             mb={4}
           />
-          <Text fontSize={24} fontWeight={600}>
-            Register
-          </Text>
-          <Text>Isi semua form untuk register</Text>
         </CContainer>
       </CContainer>
 
@@ -91,9 +69,16 @@ export default function Register({ containerRef }: Props) {
         p={6}
         pb={8}
         flex={0}
-        borderRadius={"0 20px 0 0"}
+        borderRadius={"20px 20px 0 0"}
         bg={lightDarkColor}
       >
+        <Text fontSize={24} fontWeight={600}>
+          Register
+        </Text>
+        <Text mb={4} opacity={0.4}>
+          Isi semua form untuk register
+        </Text>
+
         <form>
           <FormControl mb={4} isInvalid={!!formik.errors.username}>
             <FormLabel>
