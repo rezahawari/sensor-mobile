@@ -13,20 +13,28 @@ import { useState } from "react";
 
 export default function DataTableDisplay() {
   const [isScrolling, setIsScrolling] = useState(false);
+  console.log(isScrolling);
 
-  const handleScroll = (e: React.WheelEvent<HTMLDivElement>) => {
-    if (e.currentTarget.scrollLeft !== 0) {
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    if (
+      target.scrollLeft !== 0 &&
+      target.scrollLeft !== target.scrollWidth - target.clientWidth
+    ) {
       setIsScrolling(true);
-      e.stopPropagation();
     } else {
       setIsScrolling(false);
     }
   };
 
-  const handlePropagination = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (isScrolling) {
       e.stopPropagation();
     }
+  };
+
+  const handleTouchEnd = () => {
+    setIsScrolling(false);
   };
 
   // SX
@@ -43,9 +51,8 @@ export default function DataTableDisplay() {
         w={"100%"}
         overflowX={"auto"}
         onScroll={handleScroll}
-        onTouchStart={handlePropagination}
-        onTouchMove={handlePropagination}
-        onTouchEnd={handlePropagination}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         className="noScroll"
       >
         <Table>
