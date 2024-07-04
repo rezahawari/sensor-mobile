@@ -1,15 +1,19 @@
 import { useDisclosure } from "@chakra-ui/react";
 import { Marker } from "@react-google-maps/api";
-import DataGraphic from "../../pages/main/home/sections/DataGraphic";
+import DataGraphic from "../independent/DataGraphic";
 import CContainer from "../independent/wrapper/CContainer";
 import CustomDrawer from "../independent/wrapper/CustomDrawer";
 import DrawerHeader from "./DrawerHeader";
+import DataTableDisplay from "../independent/DataTableDisplay";
+import DeviceInfo from "../independent/DeviceInfo";
+import AlertInfo from "../independent/AlertInfo";
+import DeviceLocation from "../independent/DeviceLocation";
 
 interface Props {
   item: any;
 }
 
-export default function DeviceLocation({ item }: Props) {
+export default function DeviceLocationMarker({ item }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const officeIcon = {
@@ -34,8 +38,16 @@ export default function DeviceLocation({ item }: Props) {
         onClose={onClose}
         header={<DrawerHeader title="Detail" />}
       >
-        <CContainer px={6} pb={8}>
+        <CContainer pb={8}>
           <DataGraphic />
+
+          <DataTableDisplay />
+
+          <DeviceInfo />
+
+          <AlertInfo />
+
+          <DeviceLocation />
         </CContainer>
       </CustomDrawer>
     </>

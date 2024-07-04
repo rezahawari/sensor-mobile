@@ -1,6 +1,6 @@
 import { Checkbox, HStack, Text } from "@chakra-ui/react";
-import ChartLineChart from "../../../../components/dependent/chart/ChartLineChart";
-import CContainer from "../../../../components/independent/wrapper/CContainer";
+import ChartLineChart from "../dependent/chart/ChartLineChart";
+import CContainer from "./wrapper/CContainer";
 
 export default function DataGraphic() {
   // const dummy = {};
@@ -34,8 +34,8 @@ export default function DataGraphic() {
   // SX
 
   return (
-    <CContainer borderRadius={12} flex={0}>
-      <HStack justify={"space-between"} mb={4}>
+    <CContainer flex={0} px={6} borderTop={"6px solid var(--divider)"} py={4}>
+      <HStack justify={"space-between"} mb={2}>
         <Text as={"h2"} fontWeight={600}>
           Data Graphic
         </Text>

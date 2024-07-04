@@ -1,7 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { useCallback } from "react";
-import DeviceLocation from "./DeviceLocation";
+import DeviceLocation from "./DeviceLocationMarker";
 
 const devicesLocation = [
   { id: 1, data: { lat: -6.9667, lng: 110.4167 } },

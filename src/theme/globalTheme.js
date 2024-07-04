@@ -301,13 +301,9 @@ export const globalTheme = extendTheme({
       },
       sizes: {
         md: {
-          // th: {
-          //   py: "16px",
-          //   px: "12px",
-          // },
           td: {
             py: "12px",
-            px: "16px",
+            px: "24px",
           },
         },
       },
