@@ -5,9 +5,9 @@ import DeviceLocation from "./DeviceLocation";
 
 const devicesLocation = [
   { id: 1, data: { lat: -6.9667, lng: 110.4167 } },
-  { id: 2, data: { lat: -6.9667, lng: 110.4167 } },
-  { id: 3, data: { lat: -6.9667, lng: 110.4167 } },
-  { id: 4, data: { lat: -6.9667, lng: 110.4167 } },
+  { id: 2, data: { lat: -6.9967, lng: 110.4367 } },
+  { id: 3, data: { lat: -6.9667, lng: 110.4757 } },
+  { id: 4, data: { lat: -6.9367, lng: 110.4267 } },
 ];
 
 export default function SensorMaps() {
