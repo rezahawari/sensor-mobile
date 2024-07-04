@@ -15,12 +15,7 @@ export default function DeviceLocation() {
   const [data] = useState<string[] | null>(dummy);
 
   return (
-    <CContainer
-      borderRadius={12}
-      flex={0}
-      borderTop={"6px solid var(--divider)"}
-      py={4}
-    >
+    <CContainer flex={0} borderTop={"6px solid var(--divider)"} py={4}>
       <HStack justify={"space-between"} mb={2} px={6}>
         <Text as={"h2"} fontWeight={600}>
           Device Location
