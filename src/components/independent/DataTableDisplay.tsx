@@ -13,7 +13,6 @@ import { useState } from "react";
 
 export default function DataTableDisplay() {
   const [isScrolling, setIsScrolling] = useState(false);
-  console.log(isScrolling);
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
