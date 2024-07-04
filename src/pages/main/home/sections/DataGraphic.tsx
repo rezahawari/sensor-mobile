@@ -19,7 +19,7 @@ export default function DataGraphic() {
       </HStack>
 
       <CContainer>
-        <Text opacity={0.4}>Contentnya Pekok</Text>
+        <Text opacity={0.4}>Ini ceritanya line chart</Text>
       </CContainer>
     </CContainer>
   );
