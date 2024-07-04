@@ -23,7 +23,7 @@ export default function DataTableDisplay() {
     }
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handlePropagination = (e: React.TouchEvent<HTMLDivElement>) => {
     if (isScrolling) {
       e.stopPropagation();
     }
@@ -43,7 +43,9 @@ export default function DataTableDisplay() {
         w={"100%"}
         overflowX={"auto"}
         onWheel={handleScroll}
-        onTouchMove={handleTouchMove}
+        onTouchStart={handlePropagination}
+        onTouchMove={handlePropagination}
+        onTouchEnd={handlePropagination}
         className="noScroll"
       >
         <Table>
