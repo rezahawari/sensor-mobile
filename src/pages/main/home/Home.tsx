@@ -81,6 +81,7 @@ export default function Home() {
                     <Badge
                       key={key}
                       colorScheme={key === "company" ? "purple" : "blue"}
+                      textTransform={"none"}
                     >
                       {config[key as keyof Interface__Config].label}
                     </Badge>
