@@ -71,8 +71,9 @@ export default function Register({ containerRef }: Props) {
         overflowY={"auto"}
         p={6}
         pb={8}
-        borderRadius={"20px 20px 0 0"}
-        bg={lightDarkColor}
+        zIndex={2}
+        // borderRadius={"20px 20px 0 0"}
+        // bg={lightDarkColor}
       >
         <Text fontSize={24} fontWeight={600}>
           Register
