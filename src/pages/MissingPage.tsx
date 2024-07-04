@@ -24,7 +24,7 @@ export default function MissingPage() {
           w={"100%"}
           maxW={"300px"}
           variant={"outline"}
-          colorScheme="ap"
+          colorScheme="dl"
           className="lg-clicky"
           onClick={() => {
             window.history.back();
@@ -40,7 +40,6 @@ export default function MissingPage() {
           as={Link}
           to={"/"}
           mx={"auto"}
-          color={"p.500"}
         >
           Go to Landing Page
         </Button>

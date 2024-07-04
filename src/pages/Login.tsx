@@ -36,7 +36,7 @@ export default function Login({ containerRef }: Props) {
     onSubmit: (values, { resetForm }) => {
       console.log(values);
 
-      navigate("/dashboard");
+      navigate("/home");
     },
   });
 

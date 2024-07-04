@@ -7,7 +7,7 @@ import Landing from "./pages/Landing";
 import Maps from "./pages/main/maps/Maps";
 import MissingPage from "./pages/MissingPage";
 import { globalTheme } from "./theme/globalTheme";
-import Dashboard from "./pages/main/dashboard/Dashboard";
+import Home from "./pages/main/home/Home";
 import Settings from "./pages/main/settings/Settings";
 
 export const App = () => (
@@ -16,10 +16,10 @@ export const App = () => (
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route
-          path="/dashboard"
+          path="/home"
           element={
             <NavContainer active={0}>
-              <Dashboard />
+              <Home />
             </NavContainer>
           }
         />

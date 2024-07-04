@@ -12,7 +12,7 @@ import {
 const navs = [
   {
     label: "Dashboard",
-    link: "/dashboard",
+    link: "/home",
     icon: RiHomeSmile2Line,
     iconFill: RiHomeSmile2Fill,
   },
