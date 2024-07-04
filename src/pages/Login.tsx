@@ -6,7 +6,6 @@ import {
   HStack,
   Icon,
   Image,
-  Input,
   Text,
 } from "@chakra-ui/react";
 import { RiArrowRightSLine } from "@remixicon/react";
@@ -18,6 +17,7 @@ import CContainer from "../components/independent/wrapper/CContainer";
 import { useLightDarkColor } from "../constant/colors";
 import { iconSize } from "../constant/sizes";
 import { useNavigate } from "react-router-dom";
+import StringInput from "../components/dependent/input/StringInput";
 
 interface Props {
   containerRef: any;
@@ -94,7 +94,7 @@ export default function Login({ containerRef }: Props) {
                 Username
                 <RequiredForm />
               </FormLabel>
-              <Input
+              <StringInput
                 name="username"
                 placeholder="sulenq_wazawsky"
                 onChange={formik.handleChange}

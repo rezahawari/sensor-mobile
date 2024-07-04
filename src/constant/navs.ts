@@ -11,7 +11,7 @@ import {
 
 const navs = [
   {
-    label: "Dashboard",
+    label: "Home",
     link: "/home",
     icon: RiHomeSmile2Line,
     iconFill: RiHomeSmile2Fill,

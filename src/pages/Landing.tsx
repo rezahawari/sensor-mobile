@@ -2,16 +2,15 @@ import { HStack } from "@chakra-ui/react";
 import { useRef } from "react";
 import CContainer from "../components/independent/wrapper/CContainer";
 import Container from "../components/independent/wrapper/Container";
+import { useLightDarkColor } from "../constant/colors";
 import Login from "./Login";
 import Register from "./Register";
-import { useDarkLightColor, useLightDarkColor } from "../constant/colors";
 
 export default function Landing() {
   const containerRef = useRef(null);
 
   // SX
   const lightDarkColor = useLightDarkColor();
-  const darkLightColor = useDarkLightColor();
 
   return (
     <Container>
@@ -24,7 +23,7 @@ export default function Landing() {
         className="noScroll"
         align={"stretch"}
         gap={0}
-        bg={darkLightColor}
+        bg={"dark"}
       >
         <CContainer
           h={"calc(50% + 8px)"}
@@ -36,6 +35,7 @@ export default function Landing() {
           position={"absolute"}
           bottom={0}
           zIndex={1}
+          border={"1px solid var(--divider)"}
         />
 
         <CContainer minW={"100%"} scrollSnapAlign={"center"}>

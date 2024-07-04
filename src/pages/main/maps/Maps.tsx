@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import Header from "../../../components/dependent/Header";
 import CContainer from "../../../components/independent/wrapper/CContainer";
 import { useContentBgColor } from "../../../constant/colors";
+import SensorMaps from "../../../components/dependent/SensorMaps";
 
 export default function Maps() {
   // SX
@@ -13,7 +14,9 @@ export default function Maps() {
         <Header title="Maps" />
       </Box>
 
-      <CContainer p={5} bg={contentBgColor}></CContainer>
+      <CContainer bg={contentBgColor}>
+        <SensorMaps />
+      </CContainer>
     </CContainer>
   );
 }

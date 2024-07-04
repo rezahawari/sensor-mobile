@@ -1,6 +1,7 @@
 import { Box, Icon, IconButton, Input } from "@chakra-ui/react";
 import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 import { useState } from "react";
+import { useDarkLightColor } from "../../constant/colors";
 
 interface Props {
   name: string;
@@ -20,6 +21,9 @@ export default function PasswordInput({
 }: Props) {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  // SX
+  const darkLightColor = useDarkLightColor();
+
   return (
     <Box position={"relative"}>
       <Input
@@ -30,6 +34,11 @@ export default function PasswordInput({
         value={inputValue || ""}
         type={showPassword ? "text" : "password"}
         pr={"40px !important"}
+        _focus={{
+          border: "1px solid",
+          borderColor: `${darkLightColor} !important`,
+          boxShadow: "none !important",
+        }}
         {...props}
       />
 
