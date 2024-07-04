@@ -130,8 +130,8 @@ export default function Login({ containerRef }: Props) {
             form="loginForm"
             flexShrink={0}
             size={"lg"}
-            className="btn-ap clicky"
-            colorScheme="ap"
+            className="clicky"
+            colorScheme="dl"
           >
             Login
           </Button>

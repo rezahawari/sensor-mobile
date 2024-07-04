@@ -31,7 +31,7 @@ export default function NavItem({ nav, index, active }: Props) {
       as={Link}
       to={nav.link}
       justify={"center"}
-      color={active === index ? "p.500" : ""}
+      // color={active === index ? "p.500" : ""}
       py={3}
       px={2}
       opacity={active === index ? 1 : 0.6}

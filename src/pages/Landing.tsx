@@ -4,13 +4,14 @@ import CContainer from "../components/independent/wrapper/CContainer";
 import Container from "../components/independent/wrapper/Container";
 import Login from "./Login";
 import Register from "./Register";
-import { useLightDarkColor } from "../constant/colors";
+import { useDarkLightColor, useLightDarkColor } from "../constant/colors";
 
 export default function Landing() {
   const containerRef = useRef(null);
 
   // SX
   const lightDarkColor = useLightDarkColor();
+  const darkLightColor = useDarkLightColor();
 
   return (
     <Container>
@@ -23,7 +24,7 @@ export default function Landing() {
         className="noScroll"
         align={"stretch"}
         gap={0}
-        bg={"p.500"}
+        bg={darkLightColor}
       >
         <CContainer
           h={"calc(50% + 8px)"}

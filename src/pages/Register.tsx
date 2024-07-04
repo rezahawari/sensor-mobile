@@ -123,8 +123,8 @@ export default function Register({ containerRef }: Props) {
           <Button
             flexShrink={0}
             size={"lg"}
-            className="btn-ap clicky"
-            colorScheme="ap"
+            className="clicky"
+            colorScheme="dl"
           >
             Register
           </Button>
