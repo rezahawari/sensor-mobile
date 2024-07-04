@@ -27,7 +27,7 @@ export default function PasswordInput({
         onChange={(e) => {
           onChangeSetter(e.target.value);
         }}
-        value={inputValue}
+        value={inputValue || ""}
         type={showPassword ? "text" : "password"}
         pr={"40px !important"}
         {...props}

@@ -89,7 +89,7 @@ export default function Login({ containerRef }: Props) {
               name="username"
               placeholder="sulenq_wazawsky"
               onChange={formik.handleChange}
-              value={formik.values.username}
+              value={formik.values.username || ""}
             />
             <FormErrorMessage>
               {formik.errors.username as string}
