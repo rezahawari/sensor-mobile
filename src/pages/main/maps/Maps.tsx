@@ -14,9 +14,7 @@ export default function Maps() {
         <Header title="Maps" />
       </Box>
 
-      <CContainer bg={contentBgColor}>
-        <SensorMaps />
-      </CContainer>
+      <CContainer bg={contentBgColor}></CContainer>
     </CContainer>
   );
 }
