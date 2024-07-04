@@ -58,6 +58,16 @@ export default function SensorMaps() {
           streetViewControl: false, // Menonaktifkan kontrol street view
           fullscreenControl: false, // Menonaktifkan tombol full screen
           gestureHandling: "cooperative", // Menetapkan gestureHandling ke cooperative
+          minZoom: 3,
+          restriction: {
+            latLngBounds: {
+              north: 85, // Batas utara (dekat Kutub Utara)
+              south: -85, // Batas selatan (dekat Kutub Selatan)
+              east: 180, // Batas timur (garis batas timur)
+              west: -180, // Batas barat (garis batas barat)
+            },
+            strictBounds: true,
+          },
         }}
       >
         <Marker position={center} icon={officeIcon} />
