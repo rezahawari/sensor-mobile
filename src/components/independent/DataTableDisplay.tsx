@@ -16,10 +16,7 @@ export default function DataTableDisplay() {
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
-    if (
-      target.scrollLeft !== 0 &&
-      target.scrollLeft !== target.scrollWidth - target.clientWidth
-    ) {
+    if (target.scrollLeft !== target.scrollWidth - target.clientWidth) {
       setIsScrolling(true);
     } else {
       setIsScrolling(false);
