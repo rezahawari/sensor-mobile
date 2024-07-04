@@ -1,16 +1,27 @@
-import { Box, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Button,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/react";
+import { useState } from "react";
 import Header from "../../../components/dependent/Header";
+import SingleSelectCompanyDrawer from "../../../components/dependent/input/dedicated/SingleSelectCompanyDrawer";
+import SingleSelectDeviceNameDrawer from "../../../components/dependent/input/dedicated/SingleSelectDeviceNameDrawer";
+import SingleSelectModuleDrawer from "../../../components/dependent/input/dedicated/SingleSelectModuleDrawer";
+import SingleSelectProjectDrawer from "../../../components/dependent/input/dedicated/SingleSelectProjectDrawer";
 import CContainer from "../../../components/independent/wrapper/CContainer";
 import {
   useContentBgColor,
   useDarkLightColor,
   useLightDarkColor,
 } from "../../../constant/colors";
-import SingleSelectCompanyDrawer from "../../../components/dependent/input/dedicated/SingleSelectCompanyDrawer";
-import { useState } from "react";
-import SingleSelectModuleDrawer from "../../../components/dependent/input/dedicated/SingleSelectModuleDrawer";
-import SingleSelectProjectDrawer from "../../../components/dependent/input/dedicated/SingleSelectProjectDrawer";
-import SingleSelectDeviceNameDrawer from "../../../components/dependent/input/dedicated/SingleSelectDeviceNameDrawer";
+import DataGraphic from "./sections/DataGraphic";
 
 interface Interface__Config {
   company: any;
@@ -35,68 +46,82 @@ export default function Home() {
 
   return (
     <CContainer>
+      {/* Header */}
       <Box bg={darkLightColor} borderBottom={"1px solid var(--divider2)"}>
         <Header bg={"transparent"} color={lightDarkColor} title="Dashboard" />
       </Box>
 
-      <CContainer bg={darkLightColor} p={5} flex={0}>
-        <SimpleGrid columns={1} gap={2}>
-          <SingleSelectCompanyDrawer
-            id="select-company-drawer"
-            name="company"
-            onConfirm={(inputValue) => {
-              setConfig((ps) => ({ ...ps, company: inputValue }));
-            }}
-            inputValue={config.company}
-            placeholder="Pilih Company"
-            color={lightDarkColor}
-          />
+      {/* Config */}
+      <CContainer bg={darkLightColor} flex={0}>
+        <Accordion allowToggle defaultIndex={0}>
+          <AccordionItem border={"none"}>
+            <AccordionButton
+              as={Button}
+              className="btn"
+              color={lightDarkColor}
+              justifyContent={"space-between"}
+              borderRadius={0}
+              size={"lg"}
+              _expanded={{ bg: "var(--divider) !important" }}
+            >
+              <Text>Config</Text>
+              <AccordionIcon />
+            </AccordionButton>
 
-          <SingleSelectProjectDrawer
-            id="select-project-drawer"
-            name="project"
-            onConfirm={(inputValue) => {
-              setConfig((ps) => ({ ...ps, project: inputValue }));
-            }}
-            inputValue={config.project}
-            placeholder="Pilih Project"
-            color={lightDarkColor}
-          />
+            <AccordionPanel p={5}>
+              <SimpleGrid columns={1} gap={2}>
+                <SingleSelectCompanyDrawer
+                  id="select-company-drawer"
+                  name="company"
+                  onConfirm={(inputValue) => {
+                    setConfig((ps) => ({ ...ps, company: inputValue }));
+                  }}
+                  inputValue={config.company}
+                  placeholder="Select Company"
+                  color={lightDarkColor}
+                />
 
-          <SingleSelectModuleDrawer
-            id="select-module-drawer"
-            name="module"
-            onConfirm={(inputValue) => {
-              setConfig((ps) => ({ ...ps, module: inputValue }));
-            }}
-            inputValue={config.module}
-            placeholder="Pilih Module"
-            color={lightDarkColor}
-          />
+                <SingleSelectProjectDrawer
+                  id="select-project-drawer"
+                  name="project"
+                  onConfirm={(inputValue) => {
+                    setConfig((ps) => ({ ...ps, project: inputValue }));
+                  }}
+                  inputValue={config.project}
+                  placeholder="Select Project"
+                  color={lightDarkColor}
+                />
 
-          <SingleSelectDeviceNameDrawer
-            id="select-device-name-drawer"
-            name="device_name"
-            onConfirm={(inputValue) => {
-              setConfig((ps) => ({ ...ps, device_name: inputValue }));
-            }}
-            inputValue={config.device_name}
-            placeholder="Pilih Device Name"
-            color={lightDarkColor}
-          />
-        </SimpleGrid>
+                <SingleSelectModuleDrawer
+                  id="select-module-drawer"
+                  name="module"
+                  onConfirm={(inputValue) => {
+                    setConfig((ps) => ({ ...ps, module: inputValue }));
+                  }}
+                  inputValue={config.module}
+                  placeholder="Select Module"
+                  color={lightDarkColor}
+                />
+
+                <SingleSelectDeviceNameDrawer
+                  id="select-device-name-drawer"
+                  name="device_name"
+                  onConfirm={(inputValue) => {
+                    setConfig((ps) => ({ ...ps, device_name: inputValue }));
+                  }}
+                  inputValue={config.device_name}
+                  placeholder="Select Device Name"
+                  color={lightDarkColor}
+                />
+              </SimpleGrid>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </CContainer>
 
-      <CContainer p={5} bg={contentBgColor}>
-        <CContainer bg={lightDarkColor} borderRadius={12} p={4} flex={0}>
-          <Text as={"h2"} fontWeight={600} mb={4}>
-            Title Content
-          </Text>
-
-          <CContainer>
-            <Text opacity={0.4}>Contentnya Pekok</Text>
-          </CContainer>
-        </CContainer>
+      {/* Content */}
+      <CContainer p={5} bg={contentBgColor} overflowY={"auto"}>
+        <DataGraphic />
       </CContainer>
     </CContainer>
   );
