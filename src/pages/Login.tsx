@@ -98,7 +98,7 @@ export default function Login({ containerRef }: Props) {
                 name="username"
                 placeholder="sulenq_wazawsky"
                 onChange={formik.handleChange}
-                value={formik.values.username}
+                value={formik.values.username || ""}
               />
               <FormErrorMessage>
                 {formik.errors.username as string}
@@ -117,7 +117,7 @@ export default function Login({ containerRef }: Props) {
                 onChangeSetter={(inputValue) => {
                   formik.setFieldValue("password", inputValue);
                 }}
-                inputValue={formik.values.password}
+                inputValue={formik.values.password || ""}
               />
               <FormErrorMessage>
                 {formik.errors.username as string}
@@ -126,6 +126,8 @@ export default function Login({ containerRef }: Props) {
           </form>
 
           <Button
+            type="submit"
+            form="loginForm"
             flexShrink={0}
             size={"lg"}
             className="btn-ap clicky"
