@@ -17,12 +17,15 @@ import * as yup from "yup";
 import PasswordInput from "../components/dependent/PasswordInput";
 import { RiArrowRightSLine } from "@remixicon/react";
 import { iconSize } from "../constant/sizes";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   containerRef: any;
 }
 
 export default function Login({ containerRef }: Props) {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     validateOnChange: false,
     initialValues: { username: undefined, password: undefined },
@@ -32,6 +35,8 @@ export default function Login({ containerRef }: Props) {
     }),
     onSubmit: (values, { resetForm }) => {
       console.log(values);
+
+      navigate("/dashboard");
     },
   });
 
@@ -83,7 +88,7 @@ export default function Login({ containerRef }: Props) {
         </Text>
 
         <CContainer overflowY={"auto"}>
-          <form>
+          <form id="loginForm" onSubmit={formik.handleSubmit}>
             <FormControl mb={4} isInvalid={!!formik.errors.username}>
               <FormLabel>
                 Username
@@ -131,6 +136,8 @@ export default function Login({ containerRef }: Props) {
 
           <HStack justify={"space-between"} pt={8} mt={"auto"}>
             <Button
+              type="submit"
+              form="loginForm"
               size={"sm"}
               colorScheme="ap"
               variant={"ghost"}
