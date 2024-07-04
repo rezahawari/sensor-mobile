@@ -15,7 +15,6 @@ export default function DataTableDisplay() {
   const [isScrolling, setIsScrolling] = useState(false);
 
   const handleScroll = (e: React.WheelEvent<HTMLDivElement>) => {
-    console.log(e.currentTarget.scrollLeft);
     if (e.currentTarget.scrollLeft !== 0) {
       setIsScrolling(true);
       e.stopPropagation();
