@@ -1,46 +1,30 @@
 import {
-  RiCalendarFill,
-  RiCalendarLine,
-  RiHistoryFill,
-  RiHistoryLine,
+  RiFileChartFill,
+  RiFileChartLine,
   RiHomeSmile2Fill,
   RiHomeSmile2Line,
-  RiTeamFill,
-  RiTeamLine,
-  RiUserFill,
-  RiUserLine,
+  RiMapPin2Fill,
+  RiMapPin2Line,
 } from "@remixicon/react";
 
 const navs = [
   {
-    label: "Beranda",
-    link: "/beranda",
+    label: "Dashboard",
+    link: "/dashboard",
     icon: RiHomeSmile2Line,
     iconFill: RiHomeSmile2Fill,
   },
   {
-    label: "Jadwal",
+    label: "Maps",
     link: "/jadwal",
-    icon: RiCalendarLine,
-    iconFill: RiCalendarFill,
+    icon: RiMapPin2Line,
+    iconFill: RiMapPin2Fill,
   },
   {
-    label: "Karyawan",
-    link: "/karyawan",
-    icon: RiTeamLine,
-    iconFill: RiTeamFill,
-  },
-  {
-    label: "Aktivitas",
-    link: "/aktivitas",
-    icon: RiHistoryLine,
-    iconFill: RiHistoryFill,
-  },
-  {
-    label: "Profil",
-    link: "/profil",
-    icon: RiUserLine,
-    iconFill: RiUserFill,
+    label: "Grafik",
+    link: "/chart",
+    icon: RiFileChartLine,
+    iconFill: RiFileChartFill,
   },
 ];
 
