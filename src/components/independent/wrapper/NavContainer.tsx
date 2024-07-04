@@ -46,7 +46,7 @@ export default function NavContainer({
               bg={bodyColor}
               pb={4}
               w={"100%"}
-              columns={3}
+              columns={4}
               borderTop={"1px solid var(--divider2)"}
               h={"85px"}
               maxW={"720px"}

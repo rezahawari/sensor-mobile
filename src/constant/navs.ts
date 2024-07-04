@@ -1,10 +1,12 @@
 import {
-  RiFileChartFill,
-  RiFileChartLine,
+  RiBarChartFill,
+  RiBarChartLine,
   RiHomeSmile2Fill,
   RiHomeSmile2Line,
   RiMapPin2Fill,
   RiMapPin2Line,
+  RiSettingsFill,
+  RiSettingsLine,
 } from "@remixicon/react";
 
 const navs = [
@@ -16,15 +18,21 @@ const navs = [
   },
   {
     label: "Maps",
-    link: "/jadwal",
+    link: "/maps",
     icon: RiMapPin2Line,
     iconFill: RiMapPin2Fill,
   },
   {
-    label: "Grafik",
+    label: "Chart",
     link: "/chart",
-    icon: RiFileChartLine,
-    iconFill: RiFileChartFill,
+    icon: RiBarChartLine,
+    iconFill: RiBarChartFill,
+  },
+  {
+    label: "Settings",
+    link: "/settings",
+    icon: RiSettingsLine,
+    iconFill: RiSettingsFill,
   },
 ];
 

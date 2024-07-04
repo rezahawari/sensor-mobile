@@ -1,10 +1,10 @@
 import { HStack } from "@chakra-ui/react";
 import { useRef } from "react";
-import CContainer from "../../components/independent/wrapper/CContainer";
-import Container from "../../components/independent/wrapper/Container";
-import Login from "../Login";
-import Register from "../Register";
-import { useLightDarkColor } from "../../constant/colors";
+import CContainer from "../components/independent/wrapper/CContainer";
+import Container from "../components/independent/wrapper/Container";
+import Login from "./Login";
+import Register from "./Register";
+import { useLightDarkColor } from "../constant/colors";
 
 export default function Landing() {
   const containerRef = useRef(null);
