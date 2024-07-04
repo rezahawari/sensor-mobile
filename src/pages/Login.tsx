@@ -5,19 +5,18 @@ import {
   FormLabel,
   HStack,
   Icon,
-  Image,
   Text,
 } from "@chakra-ui/react";
 import { RiArrowRightSLine } from "@remixicon/react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import StringInput from "../components/dependent/input/StringInput";
 import PasswordInput from "../components/dependent/PasswordInput";
 import RequiredForm from "../components/form/RequiredForm";
 import CContainer from "../components/independent/wrapper/CContainer";
 import { useLightDarkColor } from "../constant/colors";
 import { iconSize } from "../constant/sizes";
-import { useNavigate } from "react-router-dom";
-import StringInput from "../components/dependent/input/StringInput";
 
 interface Props {
   containerRef: any;
@@ -51,25 +50,8 @@ export default function Login({ containerRef }: Props) {
         color={lightDarkColor}
         p={5}
         position={"relative"}
-      >
-        <Image
-          src="/logoWhite.svg"
-          w={"200px"}
-          position={"absolute"}
-          opacity={0.05}
-          left={"50%"}
-          top={"-20px"}
-          transform={"translateX(-50%)"}
-        />
-        <CContainer flex={0} my={"auto"} align={"center"}>
-          <Image
-            src="/logoWhiteBg.png"
-            w={"100px"}
-            borderRadius={"full"}
-            mb={4}
-          />
-        </CContainer>
-      </CContainer>
+        opacity={0}
+      ></CContainer>
 
       <CContainer
         h={"50%"}

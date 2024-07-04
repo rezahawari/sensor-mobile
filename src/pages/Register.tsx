@@ -5,7 +5,6 @@ import {
   FormLabel,
   HStack,
   Icon,
-  Image,
   Input,
   Text,
 } from "@chakra-ui/react";
@@ -46,25 +45,8 @@ export default function Register({ containerRef }: Props) {
         color={lightDarkColor}
         p={5}
         position={"relative"}
-      >
-        <Image
-          src="/logoWhite.svg"
-          w={"200px"}
-          position={"absolute"}
-          opacity={0.05}
-          left={"50%"}
-          top={"-20px"}
-          transform={"translateX(-50%)"}
-        />
-        <CContainer flex={0} my={"auto"} align={"center"}>
-          <Image
-            src="/logoWhiteBg.png"
-            w={"100px"}
-            borderRadius={"full"}
-            mb={4}
-          />
-        </CContainer>
-      </CContainer>
+        opacity={0}
+      ></CContainer>
 
       <CContainer
         h={"50%"}

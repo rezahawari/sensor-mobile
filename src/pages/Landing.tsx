@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
 import { useRef } from "react";
 import CContainer from "../components/independent/wrapper/CContainer";
 import Container from "../components/independent/wrapper/Container";
@@ -25,6 +25,32 @@ export default function Landing() {
         gap={0}
         bg={"dark"}
       >
+        <CContainer
+          h={"50%"}
+          overflow={"hidden"}
+          color={lightDarkColor}
+          p={5}
+          position={"absolute"}
+        >
+          <Image
+            src="/logoWhite.svg"
+            w={"300px"}
+            position={"absolute"}
+            opacity={0.05}
+            right={"-220px"}
+            top={"-40px"}
+            transform={"translateX(-50%)"}
+          />
+          <CContainer flex={0} my={"auto"} align={"center"}>
+            <Image
+              src="/logoWhiteBg.png"
+              w={"100px"}
+              borderRadius={"full"}
+              mb={4}
+            />
+          </CContainer>
+        </CContainer>
+
         <CContainer
           h={"calc(50% + 8px)"}
           overflowY={"auto"}
