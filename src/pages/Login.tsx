@@ -9,13 +9,13 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import CContainer from "../components/independent/wrapper/CContainer";
-import { useLightDarkColor } from "../constant/colors";
-import RequiredForm from "../components/form/RequiredForm";
+import { RiArrowRightSLine } from "@remixicon/react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import PasswordInput from "../components/dependent/PasswordInput";
-import { RiArrowRightSLine } from "@remixicon/react";
+import RequiredForm from "../components/form/RequiredForm";
+import CContainer from "../components/independent/wrapper/CContainer";
+import { useLightDarkColor } from "../constant/colors";
 import { iconSize } from "../constant/sizes";
 
 interface Props {
