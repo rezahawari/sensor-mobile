@@ -145,7 +145,7 @@ export default function CustomDrawer({
     >
       <DrawerOverlay />
       <DrawerContent
-        maxH={!isSideDrawer ? "90%" : ""}
+        maxH={!isSideDrawer ? "calc(100% - 16px)" : ""}
         bg={"transparent"}
         ref={initialRef}
         {...props}
