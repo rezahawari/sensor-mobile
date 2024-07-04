@@ -21,11 +21,11 @@ export default function Landing() {
         gap={0}
         bg={"p.500"}
       >
-        <CContainer minW={"100vw"} scrollSnapAlign={"center"}>
+        <CContainer minW={"100%"} scrollSnapAlign={"center"}>
           <Login containerRef={containerRef} />
         </CContainer>
 
-        <CContainer minW={"100vw"} scrollSnapAlign={"center"}>
+        <CContainer minW={"100%"} scrollSnapAlign={"center"}>
           <Register containerRef={containerRef} />
         </CContainer>
       </HStack>
