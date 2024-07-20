@@ -1,5 +1,4 @@
 import { useDisclosure } from "@chakra-ui/react";
-import { Marker } from "@react-google-maps/api";
 import DataGraphic from "../independent/DataGraphic";
 import CContainer from "../independent/wrapper/CContainer";
 import CustomDrawer from "../independent/wrapper/CustomDrawer";
@@ -8,6 +7,8 @@ import DataTableDisplay from "../independent/DataTableDisplay";
 import DeviceInfo from "../independent/DeviceInfo";
 import AlertInfo from "../independent/AlertInfo";
 import DeviceLocation from "../independent/DeviceLocation";
+import L from "leaflet";
+import { Marker } from "react-leaflet";
 
 interface Props {
   item: any;
@@ -16,15 +17,17 @@ interface Props {
 export default function DeviceLocationMarker({ item }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const officeIcon = {
-    url: "/vectors/building.svg", // Atur URL gambar pin
-  };
+  const officeIcon = new L.Icon({
+    iconUrl: "/vectors/icons/hospital.svg",
+    iconSize: [48, 48], // Ukuran ikon
+  });
 
   // SX
 
   return (
     <>
       <Marker
+        //@ts-ignore
         icon={officeIcon}
         position={item.data}
         onClick={onOpen}

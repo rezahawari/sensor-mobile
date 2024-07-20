@@ -1,7 +1,22 @@
 import { VStack } from "@chakra-ui/react";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { useCallback } from "react";
-import DeviceLocation from "./DeviceLocationMarker";
+import L from "leaflet";
+import { useEffect } from "react";
+import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
+import { LatLng } from "../../constant/interfaces";
+import DeviceLocationMarker from "./DeviceLocationMarker";
+
+interface Props {
+  center?: LatLng;
+}
+
+// Hook untuk mengatur peta saat klik
+function SetViewOnClick({ center }: { center: LatLng }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, map.getZoom());
+  }, [center, map]);
+  return null;
+}
 
 const devicesLocation = [
   { id: 1, data: { lat: -6.9667, lng: 110.4167 } },
@@ -10,74 +25,57 @@ const devicesLocation = [
   { id: 4, data: { lat: -6.9367, lng: 110.4267 } },
 ];
 
-export default function SensorMaps() {
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyBtzPbevaLoWycQ3f07Ooctf_R0XtEOo-Q",
-  });
-
-  // const [map, setMap] = useState<google.maps.Map | null>(null); // Tipe data tambahan di sini
-  // console.log(map);
-
-  const onLoad = useCallback(function callback(map: any) {
-    // const bounds = new window.google.maps.LatLngBounds(center);
-    // map.fitBounds(bounds);
-    // setMap(map);
-  }, []);
-
-  const onUnmount = useCallback(function callback(map: any) {
-    // setMap(null);
-  }, []);
-
-  // SX
-  const containerStyle = {
-    width: "100vw",
-    height: "calc(100vh - 48px - 85px)",
-  };
-
-  const center = {
+export default function LeafletMap({
+  center = {
     lat: -6.9667,
     lng: 110.4167,
+  },
+}: Props) {
+  const userIcon = new L.Icon({
+    iconUrl: "/vectors/icons/userPin.svg",
+    iconSize: [48, 48], // Ukuran ikon
+  });
+
+  const containerStyle = {
+    width: `100vw`,
+    height: `100vh`,
   };
 
-  const officeIcon = {
-    url: "/vectors/icons/hospital.svg", // Atur URL gambar pin
-  };
+  const minZoomLevel = 3; // Tentukan level zoom minimum di sini
+  const maxZoomLevel = 18; // Tentukan level zoom maksimum di sini
 
-  return isLoaded ? (
-    <VStack className="sensor-maps">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={12}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        options={{
-          disableDefaultUI: true, // Menonaktifkan tampilan kontrol default
-          zoomControl: false, // Menonaktifkan kontrol zoom
-          streetViewControl: false, // Menonaktifkan kontrol street view
-          fullscreenControl: false, // Menonaktifkan tombol full screen
-          gestureHandling: "cooperative", // Menetapkan gestureHandling ke cooperative
-          minZoom: 3,
-          restriction: {
-            latLngBounds: {
-              north: 85, // Batas utara (dekat Kutub Utara)
-              south: -85, // Batas selatan (dekat Kutub Selatan)
-              east: 180, // Batas timur (garis batas timur)
-              west: -180, // Batas barat (garis batas barat)
-            },
-            strictBounds: true,
-          },
-        }}
+  // Tentukan batas maksimum yang dapat digeser
+  const maxBounds = L.latLngBounds(
+    L.latLng(-90, -180), // Batas bawah kiri (selatan barat)
+    L.latLng(90, 180) // Batas atas kanan (utara timur)
+  );
+
+  return (
+    <VStack position="fixed" left={0} top={0}>
+      <MapContainer
+        //@ts-ignore
+        center={[center.lat, center.lng]}
+        zoom={10}
+        style={containerStyle as any}
+        minZoom={minZoomLevel}
+        maxZoom={maxZoomLevel}
+        maxBounds={maxBounds}
+        maxBoundsViscosity={1.0} // Biarkan peta memantul ketika mencapai batas
       >
-        <Marker position={center} icon={officeIcon} />
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+        <Marker
+          position={[center.lat, center.lng]}
+          //@ts-ignore
+          icon={userIcon}
+        />
 
         {devicesLocation.map((item, i) => (
-          <DeviceLocation key={i} item={item} />
+          <DeviceLocationMarker key={i} item={item} />
         ))}
-      </GoogleMap>
+
+        <SetViewOnClick center={center} />
+      </MapContainer>
     </VStack>
-  ) : (
-    <></>
   );
 }

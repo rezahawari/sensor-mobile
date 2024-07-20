@@ -1,11 +1,8 @@
 import {
   Button,
-  FormControl,
-  FormLabel,
   HStack,
   Icon,
   IconButton,
-  Input,
   Modal,
   ModalBody,
   ModalContent,
@@ -18,7 +15,6 @@ import {
   useColorMode,
   useColorModeValue,
   useDisclosure,
-  useToast,
   VStack,
 } from "@chakra-ui/react";
 import {
@@ -31,12 +27,10 @@ import {
   RiSunLine,
   RiTerminalBoxFill,
 } from "@remixicon/react";
-import { useState } from "react";
 import useDebugErrorState from "../global/useDebugErrorState";
 import useDebugLoadingState from "../global/useDebugLoadingState";
 import useDebugNoDataState from "../global/useDebugNoDataState";
 import useBackOnClose from "../hooks/useBackOnClose";
-import getLocation from "../lib/getLocation";
 import DisclosureHeader from "./dependent/DisclosureHeader";
 
 export default function DebugTools() {
@@ -54,15 +48,15 @@ export default function DebugTools() {
     onClose();
     window.history.back();
   }
-  const [loading, setLoading] = useState<boolean>(false);
-  const toast = useToast();
+  // const [loading, setLoading] = useState<boolean>(false);
+  // const toast = useToast();
 
-  const [lat, setLat] = useState<string | null>(
-    localStorage.getItem("officeLat")
-  );
-  const [lng, setLng] = useState<string | null>(
-    localStorage.getItem("officeLng")
-  );
+  // const [lat, setLat] = useState<string | null>(
+  //   localStorage.getItem("officeLat")
+  // );
+  // const [lng, setLng] = useState<string | null>(
+  //   localStorage.getItem("officeLng")
+  // );
   //! DEBUG
 
   return (
@@ -75,7 +69,7 @@ export default function DebugTools() {
           colorScheme="ap"
           className="btn-ap"
           position={"fixed"}
-          bottom={"8px"}
+          bottom={"200px"}
           right={"8px"}
           zIndex={999999999}
           onClick={onOpen}
@@ -168,7 +162,7 @@ export default function DebugTools() {
                 <Text fontWeight={600}>Office Center/Location</Text>
               </HStack>
 
-              <VStack
+              {/* <VStack
                 // p={4}
                 // border={"1px solid var(--divider3)"}
                 borderRadius={8}
@@ -271,7 +265,7 @@ export default function DebugTools() {
                 >
                   Refresh dulu habis setting office center yak
                 </Text>
-              </VStack>
+              </VStack> */}
             </VStack>
           </ModalBody>
 

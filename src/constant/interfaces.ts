@@ -40,3 +40,13 @@ export interface Interface__ChartLine {
   labels?: string[];
   aspectRatio?: number;
 }
+
+export interface LatLng {
+  lat: number;
+  lng: number;
+}
+
+export interface LatLong {
+  lat: number;
+  long: number;
+}
