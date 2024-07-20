@@ -6,23 +6,26 @@ import {
   FormLabel,
   HStack,
   Icon,
-  Input,
   Text,
 } from "@chakra-ui/react";
-import { RiArrowLeftSLine } from "@remixicon/react";
+import { RiArrowRightSLine } from "@remixicon/react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import PasswordInput from "../components/dependent/PasswordInput";
-import RequiredForm from "../components/form/RequiredForm";
-import CContainer from "../components/independent/wrapper/CContainer";
-import { useLightDarkColor } from "../constant/colors";
-import { iconSize } from "../constant/sizes";
+import StringInput from "../dependent/input/StringInput";
+import PasswordInput from "../dependent/PasswordInput";
+import RequiredForm from "../form/RequiredForm";
+import CContainer from "./wrapper/CContainer";
+import { useLightDarkColor } from "../../constant/colors";
+import { iconSize } from "../../constant/sizes";
 
 interface Props {
   containerRef: any;
 }
 
-export default function Register({ containerRef }: Props) {
+export default function Login({ containerRef }: Props) {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     validateOnChange: false,
     initialValues: { username: undefined, password: undefined },
@@ -32,6 +35,8 @@ export default function Register({ containerRef }: Props) {
     }),
     onSubmit: (values, { resetForm }) => {
       console.log(values);
+
+      navigate("/pricing");
     },
   });
 
@@ -52,21 +57,21 @@ export default function Register({ containerRef }: Props) {
       <CContainer h={"50%"} overflowY={"auto"} zIndex={2} pt={6}>
         <Box px={6}>
           <Text fontSize={24} fontWeight={600}>
-            Register
+            Welcome
           </Text>
           <Text mb={6} opacity={0.4}>
-            Register untuk dahulu untuk menggunakan app
+            Login untuk melanjutkan
           </Text>
         </Box>
 
         <CContainer px={6} pb={8} overflowY={"auto"}>
-          <form>
+          <form id="loginForm" onSubmit={formik.handleSubmit}>
             <FormControl mb={4} isInvalid={!!formik.errors.username}>
               <FormLabel>
                 Username
                 <RequiredForm />
               </FormLabel>
-              <Input
+              <StringInput
                 name="username"
                 placeholder="sulenq_wazawsky"
                 onChange={formik.handleChange}
@@ -98,12 +103,14 @@ export default function Register({ containerRef }: Props) {
           </form>
 
           <Button
+            type="submit"
+            form="loginForm"
             flexShrink={0}
             size={"lg"}
             className="clicky"
             colorScheme="dl"
           >
-            Register
+            Login
           </Button>
 
           <HStack justify={"space-between"} pt={8} mt={"auto"}>
@@ -112,18 +119,27 @@ export default function Register({ containerRef }: Props) {
               colorScheme="ap"
               variant={"ghost"}
               className="clicky"
-              leftIcon={<Icon as={RiArrowLeftSLine} fontSize={iconSize} />}
-              pl={2}
+            >
+              Forgot Password
+            </Button>
+
+            <Button
+              size={"sm"}
+              colorScheme="ap"
+              variant={"ghost"}
+              className="clicky"
+              rightIcon={<Icon as={RiArrowRightSLine} fontSize={iconSize} />}
+              pr={2}
               onClick={() => {
                 if (containerRef.current) {
                   containerRef.current.scrollBy({
-                    left: -400,
+                    left: 400,
                     behavior: "smooth",
                   });
                 }
               }}
             >
-              Login
+              Register
             </Button>
           </HStack>
         </CContainer>

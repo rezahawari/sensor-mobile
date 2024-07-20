@@ -2,8 +2,8 @@ import { HStack, Image } from "@chakra-ui/react";
 import { useRef } from "react";
 import CContainer from "../components/independent/wrapper/CContainer";
 import Container from "../components/independent/wrapper/Container";
-import Login from "./Login";
-import Register from "./Register";
+import Login from "../components/independent/Login";
+import Register from "../components/independent/Register";
 
 export default function Landing() {
   const containerRef = useRef(null);

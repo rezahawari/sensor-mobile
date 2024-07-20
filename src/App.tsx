@@ -9,6 +9,7 @@ import Maps from "./pages/main/maps/Maps";
 import Settings from "./pages/main/settings/Settings";
 import MissingPage from "./pages/MissingPage";
 import { globalTheme } from "./theme/globalTheme";
+import Pricing from "./pages/Pricing";
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route
             path="/home"
             element={

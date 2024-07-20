@@ -1,10 +1,10 @@
 * {
   font-family: "Inter", sans-serif !important;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none !important; /* Safari */
-  -moz-user-select: none !important; /* Firefox */
-  -ms-user-select: none !important; /* Internet Explorer/Edge */
-  user-select: none !important;
+  /* -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important; */
 }
 
 /* COLORS */
@@ -30,24 +30,23 @@
   --p600a: #2ea4ff94;
   --p900a: #016cd7d0;
 
-  --divider: #7e7e7e15;
-  --divider2: #7e7e7e25;
-  --divider3: #7e7e7e40;
+  --ba: #050505a6;
+  --bt: #333333;
+  --wt: #eeeeee;
+
+  --divider: #85858510;
+  --divider2: #85858518;
+  --divider3: #85858530;
   --divider-text: #858585c1;
 
   --dark: #191919;
 
   --blue: #1672fc;
-  --bluea: #1672fc40;
-  --greena: #16fc6a3e;
-  --yellowa: #fcf81641;
   --orange: #ff8c00;
   --orangea: #ffb45953;
   --red: #e53e3e;
-  /* --reda: #ff5d5d2d; */
-  --reda: rgba(255, 109, 109, 0.12);
-  --reda2: rgba(255, 109, 109, 0.2);
-  --reda3: rgba(255, 109, 109, 0.2);
+  --reda: #ff5d5d0f;
+  --greena: #4dc5852b;
 }
 
 *:focus-visible {
@@ -101,7 +100,7 @@ button:focus-visible {
 
 .btn-solid {
   background: var(--divider) !important;
-  border: 1px solid var(--divider3);
+  /* border: 1px solid var(--divider3); */
 }
 .btn-outline {
   background-color: transparent !important;
@@ -195,11 +194,10 @@ textarea:focus-visible,
 textarea.filled:focus,
 textarea.filled:focus-visible {
   transition: 200ms !important;
-  box-shadow: none !important;
-  /* border: 1px solid white !important; */
   /* box-shadow: 0 0 0 2px var(--p500) !important; */
+  box-shadow: none !important;
+  border: 1px solid var(--p500) !important;
 }
-
 input.filled {
   border: 1px solid var(--divider3) !important;
   background: var(--divider) !important;
@@ -216,11 +214,18 @@ select {
 
 button[aria-label="Close"] {
   background: transparent !important;
+  top: 0px !important;
+  right: 0px !important;
+}
+button[aria-label="Close"] > svg {
+  width: 12px !important;
 }
 
 .chakra-alert {
   border-radius: 12px !important;
   padding: 16px !important;
+  /* min-width: calc(100vw - 32px) !important; */
+  /* max-width: 700px !important; */
 }
 .chakra-alert__title {
   font-size: 14px;
@@ -260,7 +265,7 @@ button[aria-label="Close"] {
 }
 
 .scrollX::-webkit-scrollbar {
-  height: 8px;
+  height: 4px;
 }
 .scrollX::-webkit-scrollbar-corner,
 .scrollY::-webkit-scrollbar-corner {
@@ -268,7 +273,7 @@ button[aria-label="Close"] {
 }
 
 .scrollY::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 .scrollX::-webkit-scrollbar-thumb,
@@ -355,6 +360,17 @@ button[aria-label="Close"] {
   /* box-shadow: 1px 1px 2px 1px var(--divider); */
 }
 
+.chakra-form__helper-text {
+  opacity: 0.4;
+}
+
+.accordionButton {
+  padding: 24px;
+  border-radius: 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .ripple::after {
   content: "";
   position: absolute;
@@ -367,18 +383,6 @@ button[aria-label="Close"] {
   border-radius: 50%;
   animation: ripple 0.5s ease-out forwards;
   pointer-events: none; /* agar tidak mengganggu klik tombol */
-}
-
-.chakra-form__helper-text {
-  opacity: 0.4;
-}
-
-@keyframes ripple {
-  to {
-    width: 260px;
-    height: 260px;
-    opacity: 0;
-  }
 }
 
 .ripple-sm::after {
@@ -395,19 +399,21 @@ button[aria-label="Close"] {
   pointer-events: none; /* agar tidak mengganggu klik tombol */
 }
 
+/* Keyframes */
+@keyframes ripple {
+  to {
+    width: 260px;
+    height: 260px;
+    opacity: 0;
+  }
+}
+
 @keyframes ripple-sm {
   to {
     width: 120px;
     height: 120px;
     opacity: 0;
   }
-}
-
-.accordionButton {
-  padding: 24px;
-  border-radius: 16px;
-  justify-content: space-between;
-  align-items: flex-start;
 }
 
 @keyframes fade-in {
@@ -424,7 +430,7 @@ button[aria-label="Close"] {
     opacity: 0;
   }
   100% {
-    opacity: 0.2;
+    opacity: 0.4;
   }
 }
 
@@ -434,6 +440,15 @@ button[aria-label="Close"] {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY("5px");
   }
 }
 
@@ -452,7 +467,11 @@ button[aria-label="Close"] {
     opacity: 1;
   }
 }
+/* Keyframes */
 
+.chakra-popover__close-btn > svg {
+  width: 10px !important;
+}
 .chakra-popover__body {
   padding-right: 36px !important;
 }
@@ -576,7 +595,6 @@ button[aria-label="Close"] {
 }
 /* Date Picker End */
 
-/* Custom Start*/
 .doughnutChartContainer canvas {
   width: 100% !important;
   height: 100% !important;
@@ -586,8 +604,16 @@ button[aria-label="Close"] {
   max-height: 250px !important;
 }
 
+/* Custom Start*/
+
 img[src^="/vectors/icons/hospital.svg"] {
   transform: scale(0.5) translateY(80px);
+}
+
+a.leaflet-attribution-flag {
+  position: fixed !important;
+  top: 4px !important;
+  left: 4px !important;
 }
 
 img[alt="Google"] {
