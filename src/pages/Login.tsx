@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   FormErrorMessage,
@@ -53,23 +54,17 @@ export default function Login({ containerRef }: Props) {
         opacity={0}
       ></CContainer>
 
-      <CContainer
-        h={"50%"}
-        overflowY={"auto"}
-        p={6}
-        pb={8}
-        zIndex={2}
-        // borderRadius={"20px 20px 0 0"}
-        // bg={lightDarkColor}
-      >
-        <Text fontSize={24} fontWeight={600}>
-          Welcome
-        </Text>
-        <Text mb={6} opacity={0.4}>
-          Login untuk melanjutkan
-        </Text>
+      <CContainer h={"50%"} overflowY={"auto"} zIndex={2} pt={6}>
+        <Box px={6}>
+          <Text fontSize={24} fontWeight={600}>
+            Welcome
+          </Text>
+          <Text mb={6} opacity={0.4}>
+            Login untuk melanjutkan
+          </Text>
+        </Box>
 
-        <CContainer overflowY={"auto"}>
+        <CContainer px={6} pb={8} overflowY={"auto"}>
           <form id="loginForm" onSubmit={formik.handleSubmit}>
             <FormControl mb={4} isInvalid={!!formik.errors.username}>
               <FormLabel>

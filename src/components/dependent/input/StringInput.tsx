@@ -12,7 +12,7 @@ export default function StringInput({ ...props }: Props) {
   // SX
   const darkLightColor = useDarkLightColor();
   const { colorMode } = useColorMode();
-  const darkLightColorManual = colorMode === "light" ? "white" : "dark";
+  const darkLightColorManual = colorMode === "light" ? "white" : "var(--dark)";
 
   return (
     <>

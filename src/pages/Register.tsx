@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   FormErrorMessage,
@@ -48,23 +49,17 @@ export default function Register({ containerRef }: Props) {
         opacity={0}
       ></CContainer>
 
-      <CContainer
-        h={"50%"}
-        overflowY={"auto"}
-        p={6}
-        pb={8}
-        zIndex={2}
-        // borderRadius={"20px 20px 0 0"}
-        // bg={lightDarkColor}
-      >
-        <Text fontSize={24} fontWeight={600}>
-          Register
-        </Text>
-        <Text mb={6} opacity={0.4}>
-          Register untuk dahulu untuk menggunakan app
-        </Text>
+      <CContainer h={"50%"} overflowY={"auto"} zIndex={2} pt={6}>
+        <Box px={6}>
+          <Text fontSize={24} fontWeight={600}>
+            Register
+          </Text>
+          <Text mb={6} opacity={0.4}>
+            Register untuk dahulu untuk menggunakan app
+          </Text>
+        </Box>
 
-        <CContainer overflowY={"auto"}>
+        <CContainer px={6} pb={8} overflowY={"auto"}>
           <form>
             <FormControl mb={4} isInvalid={!!formik.errors.username}>
               <FormLabel>

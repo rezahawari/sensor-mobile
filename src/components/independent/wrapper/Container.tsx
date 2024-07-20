@@ -9,6 +9,7 @@ export default function Container({ children, ...props }: Props) {
     <VStack
       align={"stretch"}
       w={"100%"}
+      minH={"100vh"}
       maxW={"720px"}
       mx={"auto"}
       flex={1}
