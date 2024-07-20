@@ -9,6 +9,7 @@ import {
   Icon,
   SimpleGrid,
   Text,
+  VStack,
 } from "@chakra-ui/react";
 import { RiEqualizer3Line } from "@remixicon/react";
 import { iconSize } from "../../constant/sizes";
@@ -22,28 +23,22 @@ export default function Config() {
   const { config, setConfig } = useConfig();
 
   return (
-    <Accordion
-      allowToggle
-      position={"fixed"}
-      left={0}
-      bottom={"75px"}
-      w={"100%"}
-      bg={"dark"}
-    >
-      <AccordionItem border={"none"}>
-        <AccordionButton
-          as={Button}
-          className="btn"
-          color={"white"}
-          justifyContent={"space-between"}
-          borderRadius={0}
-          size={"lg"}
-          _expanded={{ bg: "var(--divider) !important" }}
-        >
-          <HStack>
-            <Icon as={RiEqualizer3Line} fontSize={iconSize} />
-            <Text mr={1}>Config</Text>
-            {/* {Object.keys(config).map((key) => {
+    <VStack position={"fixed"} left={0} bottom={"75px"} w={"100%"}>
+      <Accordion allowToggle w={"100%"} bg={"dark"} maxW={"720px"}>
+        <AccordionItem border={"none"}>
+          <AccordionButton
+            as={Button}
+            className="btn"
+            color={"white"}
+            justifyContent={"space-between"}
+            borderRadius={0}
+            size={"lg"}
+            _expanded={{ bg: "var(--divider) !important" }}
+          >
+            <HStack>
+              <Icon as={RiEqualizer3Line} fontSize={iconSize} />
+              <Text mr={1}>Config</Text>
+              {/* {Object.keys(config).map((key) => {
               if (
                 key in config &&
                 (key === "company" || key === "device_name") &&
@@ -61,78 +56,79 @@ export default function Config() {
               }
               return null;
             })} */}
-          </HStack>
-          <AccordionIcon />
-        </AccordionButton>
+            </HStack>
+            <AccordionIcon />
+          </AccordionButton>
 
-        <AccordionPanel p={5}>
-          <SimpleGrid columns={1} gap={2}>
-            <SingleSelectCompanyDrawer
-              id="select-company-drawer"
-              name="company"
-              onConfirm={(inputValue) => {
-                setConfig({ ...config, company: inputValue });
-              }}
-              inputValue={config.company}
-              placeholder="Select Company"
-              color={"white"}
-              _focus={{
-                border: "1px solid",
-                borderColor: "white !important",
-                boxShadow: "none !important",
-              }}
-            />
+          <AccordionPanel p={5}>
+            <SimpleGrid columns={1} gap={2}>
+              <SingleSelectCompanyDrawer
+                id="select-company-drawer"
+                name="company"
+                onConfirm={(inputValue) => {
+                  setConfig({ ...config, company: inputValue });
+                }}
+                inputValue={config.company}
+                placeholder="Select Company"
+                color={"white"}
+                _focus={{
+                  border: "1px solid",
+                  borderColor: "white !important",
+                  boxShadow: "none !important",
+                }}
+              />
 
-            <SingleSelectProjectDrawer
-              id="select-project-drawer"
-              name="project"
-              onConfirm={(inputValue) => {
-                setConfig({ ...config, project: inputValue });
-              }}
-              inputValue={config.project}
-              placeholder="Select Project"
-              color={"white"}
-              _focus={{
-                border: "1px solid",
-                borderColor: "white !important",
-                boxShadow: "none !important",
-              }}
-            />
+              <SingleSelectProjectDrawer
+                id="select-project-drawer"
+                name="project"
+                onConfirm={(inputValue) => {
+                  setConfig({ ...config, project: inputValue });
+                }}
+                inputValue={config.project}
+                placeholder="Select Project"
+                color={"white"}
+                _focus={{
+                  border: "1px solid",
+                  borderColor: "white !important",
+                  boxShadow: "none !important",
+                }}
+              />
 
-            <SingleSelectModuleDrawer
-              id="select-module-drawer"
-              name="module"
-              onConfirm={(inputValue) => {
-                setConfig({ ...config, module: inputValue });
-              }}
-              inputValue={config.module}
-              placeholder="Select Module"
-              color={"white"}
-              _focus={{
-                border: "1px solid",
-                borderColor: "white !important",
-                boxShadow: "none !important",
-              }}
-            />
+              <SingleSelectModuleDrawer
+                id="select-module-drawer"
+                name="module"
+                onConfirm={(inputValue) => {
+                  setConfig({ ...config, module: inputValue });
+                }}
+                inputValue={config.module}
+                placeholder="Select Module"
+                color={"white"}
+                _focus={{
+                  border: "1px solid",
+                  borderColor: "white !important",
+                  boxShadow: "none !important",
+                }}
+              />
 
-            <SingleSelectDeviceNameDrawer
-              id="select-device-name-drawer"
-              name="device_name"
-              onConfirm={(inputValue) => {
-                setConfig({ ...config, device_name: inputValue });
-              }}
-              inputValue={config.device_name}
-              placeholder="Select Device Name"
-              color={"white"}
-              _focus={{
-                border: "1px solid",
-                borderColor: "white !important",
-                boxShadow: "none !important",
-              }}
-            />
-          </SimpleGrid>
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
+              <SingleSelectDeviceNameDrawer
+                id="select-device-name-drawer"
+                name="device_name"
+                onConfirm={(inputValue) => {
+                  setConfig({ ...config, device_name: inputValue });
+                }}
+                inputValue={config.device_name}
+                placeholder="Select Device Name"
+                color={"white"}
+                _focus={{
+                  border: "1px solid",
+                  borderColor: "white !important",
+                  boxShadow: "none !important",
+                }}
+              />
+            </SimpleGrid>
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+    </VStack>
   );
 }

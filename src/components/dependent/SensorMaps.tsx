@@ -27,8 +27,8 @@ const devicesLocation = [
 
 export default function SensorMaps({
   center = {
-    lat: -6.9667,
-    lng: 110.4167,
+    lat: -7.058665717301434,
+    lng: 110.43691170934119,
   },
 }: Props) {
   const userIcon = new L.Icon({
@@ -37,8 +37,8 @@ export default function SensorMaps({
   });
 
   const containerStyle = {
-    width: `100vw`,
-    height: `100vh`,
+    width: "100vw",
+    height: "100vh",
   };
 
   const minZoomLevel = 3; // Tentukan level zoom minimum di sini
@@ -51,11 +51,11 @@ export default function SensorMaps({
   );
 
   return (
-    <VStack position="fixed" left={0} top={0}>
+    <VStack position="fixed" left={0} top={0} width="100vw" height="100vh">
       <MapContainer
         //@ts-ignore
         center={[center.lat, center.lng]}
-        zoom={10}
+        zoom={13}
         style={containerStyle as any}
         minZoom={minZoomLevel}
         maxZoom={maxZoomLevel}
@@ -70,8 +70,8 @@ export default function SensorMaps({
           icon={userIcon}
         />
 
-        {devicesLocation.map((item, i) => (
-          <DeviceLocationMarker key={i} item={item} />
+        {devicesLocation.map((item) => (
+          <DeviceLocationMarker key={item.id} item={item} />
         ))}
 
         <SetViewOnClick center={center} />

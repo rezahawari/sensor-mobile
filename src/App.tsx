@@ -10,6 +10,7 @@ import Settings from "./pages/main/settings/Settings";
 import MissingPage from "./pages/MissingPage";
 import { globalTheme } from "./theme/globalTheme";
 import Pricing from "./pages/Pricing";
+import "leaflet/dist/leaflet.css";
 
 export const App = () => {
   return (

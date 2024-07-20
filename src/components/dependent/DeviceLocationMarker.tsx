@@ -18,7 +18,7 @@ export default function DeviceLocationMarker({ item }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const officeIcon = new L.Icon({
-    iconUrl: "/vectors/icons/hospital.svg",
+    iconUrl: "/vectors/building.svg",
     iconSize: [48, 48], // Ukuran ikon
   });
 
