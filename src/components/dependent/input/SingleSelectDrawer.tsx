@@ -163,7 +163,7 @@ export default function SingleSelectDrawer({
         footer={
           <>
             <Button
-              className="btn-outline clicky"
+              className="btn-solid clicky"
               w={"100%"}
               onClick={() => {
                 setSelected(undefined);
