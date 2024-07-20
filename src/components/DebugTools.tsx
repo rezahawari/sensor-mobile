@@ -157,10 +157,10 @@ export default function DebugTools() {
                 </Button>
               </SimpleGrid>
 
-              <HStack mt={4}>
+              {/* <HStack mt={4}>
                 <Icon as={RiBuilding2Line} />
                 <Text fontWeight={600}>Office Center/Location</Text>
-              </HStack>
+              </HStack> */}
 
               {/* <VStack
                 // p={4}
