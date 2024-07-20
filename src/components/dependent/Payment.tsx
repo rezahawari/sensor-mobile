@@ -4,12 +4,6 @@ import {
   HStack,
   Icon,
   ListItem,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
   SimpleGrid,
   Text,
   UnorderedList,
@@ -22,6 +16,7 @@ import useBackOnClose from "../../hooks/useBackOnClose";
 import backOnClose from "../../lib/backOnClose";
 import formatNumber from "../../lib/formatNumber";
 import CContainer from "../independent/wrapper/CContainer";
+import CustomDrawer from "../independent/wrapper/CustomDrawer";
 import DisclosureHeader from "./DisclosureHeader";
 
 interface Props {
@@ -48,80 +43,78 @@ export default function Payment({ selectedPricing }: Props) {
         Lanjutkan Pembayaran
       </Button>
 
-      <Modal isOpen={isOpen} onClose={backOnClose} size={"full"}>
-        <ModalOverlay />
-        <ModalContent minH={"calc(100vh - 32px)"} borderRadius={12}>
-          <ModalHeader>
-            <DisclosureHeader title={"Pembayaran"} />
-          </ModalHeader>
-          <ModalBody>
-            <Text fontWeight={500} mb={3}>
-              Paket Dipilih
-            </Text>
-            {selectedPricing && (
-              <HStack
-                bg={lightDarkColor}
-                borderRadius={12}
-                align={"stretch"}
-                overflow={"clip"}
-                boxShadow={"0 0 0 1px var(--p500)"}
-              >
-                <CContainer p={4}>
-                  <HStack>
-                    <Text fontSize={20} fontWeight={700} color={"p.500"}>
-                      Rp {formatNumber(selectedPricing.price)}
-                    </Text>
+      <CustomDrawer
+        id="subs-payment"
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+        header={<DisclosureHeader title={"Pembayaran"} />}
+        footer={
+          <>
+            <Button className="btn-solid clicky" onClick={backOnClose}>
+              Cancel
+            </Button>
+            <Button
+              className="btn-ap clicky"
+              colorScheme="ap"
+              as={Link}
+              to={"/home"}
+            >
+              Bayar
+            </Button>
+          </>
+        }
+      >
+        <CContainer px={6}>
+          <Text fontWeight={500} mb={3}>
+            Paket Dipilih
+          </Text>
+          {selectedPricing && (
+            <HStack
+              bg={lightDarkColor}
+              borderRadius={12}
+              align={"stretch"}
+              overflow={"clip"}
+              boxShadow={"0 0 0 1px var(--p500)"}
+            >
+              <CContainer p={4}>
+                <HStack>
+                  <Text fontSize={20} fontWeight={700} color={"p.500"}>
+                    Rp {formatNumber(selectedPricing.price)}
+                  </Text>
 
-                    <Icon as={RiCircleFill} fontSize={6} opacity={0.2} />
+                  <Icon as={RiCircleFill} fontSize={6} opacity={0.2} />
 
-                    <Text fontWeight={600} opacity={0.4}>
-                      {selectedPricing.duration} bulan
-                    </Text>
+                  <Text fontWeight={600} opacity={0.4}>
+                    {selectedPricing.duration} bulan
+                  </Text>
 
-                    {selectedPricing.best_option && (
-                      <Badge colorScheme="ap" py={0} px={1}>
-                        Best
-                      </Badge>
-                    )}
-                  </HStack>
+                  {selectedPricing.best_option && (
+                    <Badge colorScheme="ap" py={0} px={1}>
+                      Best
+                    </Badge>
+                  )}
+                </HStack>
 
-                  <Text fontWeight={500}>{selectedPricing.label}</Text>
+                <Text fontWeight={500}>{selectedPricing.label}</Text>
 
-                  <UnorderedList opacity={0.4} mt={2}>
-                    {selectedPricing.benefits.map(
-                      (benefit: any, ii: number) => (
-                        <ListItem key={ii}>
-                          <Text>{benefit}</Text>
-                        </ListItem>
-                      )
-                    )}
-                  </UnorderedList>
-                </CContainer>
-              </HStack>
-            )}
+                <UnorderedList opacity={0.4} mt={2}>
+                  {selectedPricing.benefits.map((benefit: any, ii: number) => (
+                    <ListItem key={ii}>
+                      <Text>{benefit}</Text>
+                    </ListItem>
+                  ))}
+                </UnorderedList>
+              </CContainer>
+            </HStack>
+          )}
 
-            <Text fontWeight={500} mt={6} mb={3}>
-              Metode Pembayaran
-            </Text>
-            <SimpleGrid></SimpleGrid>
-          </ModalBody>
-          <ModalFooter>
-            <CContainer gap={2}>
-              <Button className="btn-solid clicky" onClick={backOnClose}>
-                Cancel
-              </Button>
-              <Button
-                className="btn-ap clicky"
-                colorScheme="ap"
-                as={Link}
-                to={"/home"}
-              >
-                Bayar
-              </Button>
-            </CContainer>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+          <Text fontWeight={500} mt={6} mb={3}>
+            Metode Pembayaran
+          </Text>
+          <SimpleGrid></SimpleGrid>
+        </CContainer>
+      </CustomDrawer>
     </>
   );
 }
