@@ -1,6 +1,5 @@
 import {
   Button,
-  HStack,
   Icon,
   IconButton,
   Modal,
@@ -18,7 +17,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import {
-  RiBuilding2Line,
   RiCloudLine,
   RiDatabase2Line,
   RiErrorWarningLine,
