@@ -605,27 +605,20 @@ button[aria-label="Close"] > svg {
 }
 
 /* Custom Start*/
-
-img[src^="/vectors/icons/hospital.svg"] {
-  transform: scale(0.5) translateY(80px);
-}
-
 a.leaflet-attribution-flag {
   position: fixed !important;
   top: 4px !important;
   left: 4px !important;
 }
 
-img[alt="Google"] {
-  position: fixed !important;
-  top: 4px !important;
-  left: 4px !important;
+.leaflet-popup-content-wrapper {
+  border-radius: 0px !important;
 }
 
-.gmnoprint,
-.gm-style-cc {
-  display: none;
+.leaflet-popup-content {
+  margin: 12px 20px !important;
 }
+
 /* Custom Start End*/
 
 /* Media Querries */

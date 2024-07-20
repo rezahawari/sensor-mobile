@@ -145,7 +145,7 @@ export default function CustomDrawer({
     >
       <DrawerOverlay />
       <DrawerContent
-        maxH={!isSideDrawer ? "calc(100% - 16px)" : ""}
+        maxH={!isSideDrawer ? "calc(100%)" : ""}
         bg={"transparent"}
         ref={initialRef}
         {...props}
@@ -169,7 +169,7 @@ export default function CustomDrawer({
           }}
           px={0}
         >
-          {!isSideDrawer && placement === "bottom" && (
+          {/* {!isSideDrawer && placement === "bottom" && (
             <CContainer onClick={backOnClose}>
               <VStack className="drawerIndicator">
                 <Box
@@ -184,7 +184,7 @@ export default function CustomDrawer({
                 />
               </VStack>
             </CContainer>
-          )}
+          )} */}
 
           <CContainer
             h={"calc(100% - 14px)"}
@@ -200,11 +200,23 @@ export default function CustomDrawer({
             overflowY={"auto"}
             gap={0}
           >
+            <Box
+              w={"50px"}
+              h={"4px"}
+              bg={"var(--divider3)"}
+              mx={"auto"}
+              borderRadius={"full"}
+              position={"absolute"}
+              top={2}
+              left={"50%"}
+              transform={"translateX(-50%)"}
+            />
             {header}
 
             <VStack
               align={"stretch"}
               overflowY={"auto"}
+              className="scrollY"
               onScroll={handleScroll}
               gap={0}
               onTouchStart={(e) => {

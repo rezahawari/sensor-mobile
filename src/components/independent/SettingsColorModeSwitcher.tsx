@@ -29,7 +29,6 @@ export const SettingsColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (
       cursor={"pointer"}
       className="clicky"
       _active={{ opacity: 0.6 }}
-      mb={6}
       onClick={toggleColorMode}
     >
       <Icon as={RiMoonLine} fontSize={iconSize} />

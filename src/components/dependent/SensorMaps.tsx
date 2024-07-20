@@ -32,8 +32,8 @@ export default function SensorMaps({
   },
 }: Props) {
   const userIcon = new L.Icon({
-    iconUrl: "/vectors/icons/userPin.svg",
-    iconSize: [48, 48], // Ukuran ikon
+    iconUrl: "/vectors/userPin.svg",
+    iconSize: [64, 64], // Ukuran ikon
   });
 
   const containerStyle = {
