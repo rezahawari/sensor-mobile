@@ -203,7 +203,7 @@ export default function CustomDrawer({
             <Box
               w={"50px"}
               h={"4px"}
-              bg={"var(--divider3)"}
+              bg={"var(--divider)"}
               mx={"auto"}
               borderRadius={"full"}
               position={"absolute"}
