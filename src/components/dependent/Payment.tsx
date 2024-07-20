@@ -18,6 +18,7 @@ import formatNumber from "../../lib/formatNumber";
 import CContainer from "../independent/wrapper/CContainer";
 import CustomDrawer from "../independent/wrapper/CustomDrawer";
 import DisclosureHeader from "./DisclosureHeader";
+import { useEffect } from "react";
 
 interface Props {
   selectedPricing: any;
@@ -26,6 +27,12 @@ interface Props {
 export default function Payment({ selectedPricing }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   useBackOnClose("subs-payment", isOpen, onOpen, onClose);
+
+  useEffect(() => {
+    if (isOpen && !selectedPricing) {
+      backOnClose();
+    }
+  }, [isOpen, selectedPricing]);
 
   // SX
   const lightDarkColor = useLightDarkColor();
@@ -75,7 +82,7 @@ export default function Payment({ selectedPricing }: Props) {
               borderRadius={12}
               align={"stretch"}
               overflow={"clip"}
-              boxShadow={"0 0 0 1px var(--p500)"}
+              boxShadow={"0 0 0 1px var(--divider3)"}
             >
               <CContainer p={4}>
                 <HStack>
