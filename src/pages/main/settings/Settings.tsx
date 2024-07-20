@@ -9,12 +9,12 @@ export default function Settings() {
   const contentBgColor = useContentBgColor();
 
   return (
-    <CContainer>
+    <CContainer flex={1}>
       <Box borderBottom={"1px solid var(--divider2)"}>
         <Header title="Settings" />
       </Box>
 
-      <CContainer p={5} bg={contentBgColor}>
+      <CContainer flex={1} p={5} bg={contentBgColor}>
         <SettingsColorModeSwitcher />
       </CContainer>
     </CContainer>
