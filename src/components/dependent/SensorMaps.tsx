@@ -25,7 +25,7 @@ const devicesLocation = [
   { id: 4, data: { lat: -6.9367, lng: 110.4267 } },
 ];
 
-export default function LeafletMap({
+export default function SensorMaps({
   center = {
     lat: -6.9667,
     lng: 110.4167,

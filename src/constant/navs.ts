@@ -1,6 +1,6 @@
 import {
-  RiHomeSmile2Fill,
-  RiHomeSmile2Line,
+  RiRoadMapFill,
+  RiRoadMapLine,
   RiSettingsFill,
   RiSettingsLine,
 } from "@remixicon/react";
@@ -9,8 +9,8 @@ const navs = [
   {
     label: "Home",
     link: "/home",
-    icon: RiHomeSmile2Line,
-    iconFill: RiHomeSmile2Fill,
+    icon: RiRoadMapLine,
+    iconFill: RiRoadMapFill,
   },
   // {
   //   label: "Maps",

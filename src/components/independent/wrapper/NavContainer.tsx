@@ -26,7 +26,7 @@ export default function NavContainer({
         <VStack
           id="content"
           flex={1}
-          mb={noNavs ? 0 : "85px"}
+          mb={noNavs ? 0 : "75px"}
           align={"stretch"}
           gap={0}
         >
@@ -48,7 +48,7 @@ export default function NavContainer({
               w={"100%"}
               columns={2}
               borderTop={"1px solid var(--divider2)"}
-              h={"85px"}
+              h={"75px"}
               maxW={"720px"}
               mx={"auto"}
             >

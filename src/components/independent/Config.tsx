@@ -26,7 +26,7 @@ export default function Config() {
       allowToggle
       position={"fixed"}
       left={0}
-      bottom={"85px"}
+      bottom={"75px"}
       w={"100%"}
       bg={"dark"}
     >
