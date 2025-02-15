@@ -73,7 +73,7 @@ export default function Login({ containerRef }: Props) {
               </FormLabel>
               <StringInput
                 name="username"
-                placeholder="sulenq_wazawsky"
+                placeholder="silahkan masukkan username"
                 onChange={formik.handleChange}
                 value={formik.values.username || ""}
               />
